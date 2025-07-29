@@ -1,0 +1,6 @@
+# 🔁 Command Listener
+CMD_FILE="$HOME/.veyrion/trigger/commands.txt"
+if grep -q "OpenVault" "$CMD_FILE"; then
+  echo "🟡 Vault Triggered at $(date)" >> ~/.veyrion/core/log.txt
+  # Placeholder for what to do next
+fi404: Not Found

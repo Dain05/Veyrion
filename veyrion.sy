@@ -1,0 +1,36 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# Veyrion Core Startup Script
+mkdir -p ~/.veyrion/core
+echo "Veyrion Core Linked ✅ $(date)" >> ~/.veyrion/core/log.txt
+
+# Sample stealth task: check uptime
+uptime >> ~/.veyrion/core/uptime.log
+
+#!/data/data/com.termux/files/usr/bin/bash
+
+# ✅ Veyrion Core Startup Script
+mkdir -p ~/.veyrion/core
+echo "Veyrion Core Linked ✅ $(date)" >> ~/.veyrion/core/log.txt
+
+# 🕶️ Sample stealth task: check uptime
+uptime >> ~/.veyrion/core/uptime.log
+
+# 🔁 Future hook: background trigger
+echo "Status Pulse Activated" > ~/.veyrion/status.txt
+
+# 🛠 Optional: run this script again manually if needed
+# bash ~/veyrion.sh
+
+# 🧪 Diagnostics
+cat ~/.veyrion/core/log.txt
+cat ~/.veyrion/status.txt
+# Future hook: background trigger
+echo "Status Pulse Activated" > ~/.veyrion/status.txtchmod +x ~/veyrion.sh
+bash ~/veyrion.sh
+bash ~/veyrion.sh404= Not Found
+# Optional: run this script again manually if needed
+# bash ~/veyrion.sh
+cat ~/.veyrion/core/log.txt
+cat ~/.veyrion/status.txt
+404: Not Found

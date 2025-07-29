@@ -1,0 +1,86 @@
+nano ~/.termux/boot/veyrion.sh
+fi404: Not Found
+~/.termux/boot/veyrion.sh
+cat ~/.veyrion/trigger/commands.txt
+echo "OpenVault" > ~/.veyrion/trigger/commands.txt
+echo "OpenVault" > ~/.veyrion/trigger/commands.txt
+cat ~/.veyrion/core/log.txt
+Veyrion Core Linked ✅ ...
+🔶 Vault Triggered at ...
+Vault sequence initiated...~/veyrion/
+├── corewatch.sh          # Watches for trigger commands
+├── commands.txt          # Drop command words here
+├── vault/                # Encrypted notes or logs
+│   └── mind.vlt
+├── scripts/              # Any extra action scripts
+bash ~/veyrion/corewatch.sh
+├── syncdrop/             # Put files here to trigger action
+├── logs/                 # Optional — discreet logs
+└── .trigger              # Activated status flag
+mkdir -p ~/veyrion/{vault,scripts,syncdrop,logs}
+touch ~/veyrion/commands.txt
+touch ~/veyrion/.trigger
+pkg install termux-services -y
+chmod +x ~/veyrion/corewatch.sh
+
+bash ~/veyrion/corewatch.sh
+nohup bash ~/veyrion/corewatch.sh &
+#!/data/data/com.termux/files/usr/bin/bash
+
+COMMAND_FILE="$HOME/veyrion/commands.txt"
+LOG_FILE="$HOME/veyrion/logs/corewatch.log"
+
+# Create log if missing
+mkdir -p "$(dirname "$LOG_FILE")"
+touch "$LOG_FILE"
+
+echo "[CoreWatch Activated 🧠] $(date)" >> "$LOG_FILE"
+
+while true; do
+  if [ -f "$COMMAND_FILE" ]; then
+    COMMAND=$(cat "$COMMAND_FILE" | tr -d '\r')
+    
+    case "$COMMAND" in
+      OpenVault)
+        echo "[Vault Access Granted 🔓] $(date)" >> "$LOG_FILE"
+        termux-toast "Vault Access Granted"
+        termux-notification --title "Veyrion" --content "Vault Unlocked" --priority high
+        ;;
+        
+      ClearLogs)
+        > "$LOG_FILE"
+        echo "[Logs Cleared 🧹] $(date)" >> "$LOG_FILE"
+        termux-toast "Logs Cleared"
+        ;;
+        
+      SendIntel)
+        echo "[Intel Requested 📤] $(date)" >> "$LOG_FILE"
+        termux-toast "Preparing Intel"
+        cp "$LOG_FILE" "$HOME/veyrion/syncdrop/intel.log"
+        ;;
+        
+nohup bash ~/veyrion/corewatch.sh &
+      ShutdownCore)
+        echo "[CoreWatch Halted 🛑] $(date)" >> "$LOG_FILE"
+        termux-toast "Shutting Down Core"
+        break
+        ;;
+        
+      *)
+        echo "[Unknown Command ❓: $COMMAND] $(date)" >> "$LOG_FILE"
+        ;;
+    esac
+    
+    > "$COMMAND_FILE"
+  fi
+
+  sleep 5
+done
+nohup bash ~/veyrion/corewatch.sh &
+nano ~/veyrion/commands.txt
+~/veyrion/syncdrop/intel.log
+nano ~/veyrion/commands.txt
+NewCommand)
+  bash ~/veyrion/scripts/newscript.sh
+  ;;
+
