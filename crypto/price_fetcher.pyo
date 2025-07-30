@@ -1,0 +1,14 @@
+import requests
+
+def get_price(token="bitcoin"):
+    url = f"https://api.coingecko.com/api/v3/simple/price?ids={token}&vs_currencies=usd"
+    try:
+        response = requests.get(url)
+        data = response.json()
+        print(f"{token.capitalize()} price: ${data[token]['usd']}")
+    except Exception as e:
+        print(f"Error fetching price: {e}")
+
+get_price("bitcoin")
+get_price("ethereum")
+get_price("tron")
